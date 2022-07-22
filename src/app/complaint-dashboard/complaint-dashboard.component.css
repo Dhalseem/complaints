@@ -1,0 +1,15 @@
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.link{
+    padding: 24px;
+}
+@media screen and (max-width: 600px) {
+    .links{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }   
+}

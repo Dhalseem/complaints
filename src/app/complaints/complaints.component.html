@@ -1,0 +1,141 @@
+<!-- Button to clear selection -->
+<!-- <button (click)="clearSelection()">Clear Selection</button> -->
+<!-- AG Grid Angular Component -->
+
+<h3>Select a complaint in the table to manage complaint</h3>
+
+<div class="complaints">
+  <div class="complaint-details">
+    <h2>Complaint {{ selectedComplaint.complaintId }}</h2>
+    <mat-accordion multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Complainee details </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-label
+          >Complainee: <b>{{ selectedComplaint.complaineeName }}</b></mat-label
+        ><br />
+        <mat-label
+          >Organization: <b>{{ selectedComplaint.fromSail }}</b></mat-label
+        ><br />
+        <mat-label
+          >Staff Id: <b>{{ selectedComplaint.staffNumber }}</b></mat-label
+        ><br />
+        <mat-label
+          >Department: <b>{{ selectedComplaint.department }}</b></mat-label
+        ><br />
+        <mat-label
+          >Quarter: <b>{{ selectedComplaint.quarterNumber }}</b></mat-label
+        ><br />
+        <mat-label
+          >Contact: <b>{{ selectedComplaint.contactNumber }}</b></mat-label
+        ><br />
+        <mat-label
+          >E-mail: <b>{{ selectedComplaint.email }}</b></mat-label
+        ><br />
+      </mat-expansion-panel>
+      <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title> Manage complaint </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Complaint details</mat-label>
+          <textarea
+            matInput
+            placeholder="Complaint details"
+            type="text"
+            [(ngModel)]="selectedComplaint.complaintDetails"
+            name="complaintDetails"
+            required
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>Nature of work</mat-label>
+          <mat-select
+            [(ngModel)]="selectedComplaint.workNature"
+            name="workNature"
+            required
+          >
+            <mat-option value="Cement">Cement</mat-option>
+            <mat-option value="Wood">Wood</mat-option>
+            <mat-option value="Painting">Painting</mat-option>
+            <mat-option value="Roof">Roof</mat-option>
+            <mat-option value="Water supply">Water supply</mat-option>
+            <mat-option value="Sanitary">Sanitary</mat-option>
+            <mat-option value="Sewerage line Repair only"
+              >Sewerage line Repair only</mat-option
+            >
+            <mat-option value="Miscellaneous">Miscellaneous</mat-option>
+          </mat-select> </mat-form-field
+        ><br />
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select
+            [(ngModel)]="selectedComplaint.status"
+            name="status"
+            required
+          >
+            <mat-option value="New">New</mat-option>
+            <mat-option value="Pending">Pending</mat-option>
+            <mat-option value="Attended">Attended</mat-option>
+          </mat-select> </mat-form-field
+        ><br />
+        <mat-form-field appearance="outline">
+          <mat-label>Estimated days</mat-label>
+          <input
+            matInput
+            placeholder="Estimated days"
+            type="number"
+            [(ngModel)]="selectedComplaint.pendingDays"
+            name="pendingDays"
+            required
+          />
+        </mat-form-field>
+        <br />
+      </mat-expansion-panel>
+      <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title> Contract details </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="outline">
+          <mat-label>Contract Id</mat-label>
+          <mat-select
+            [(ngModel)]="selectedComplaint.attendingWorkId"
+            name="workNature"
+            required
+          >
+            <mat-option value="CC4625">CC4625</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <mat-label
+          >Contract: <b>{{ selectedComplaint.contract }}</b></mat-label
+        ><br /><br />
+        <mat-form-field appearance="outline">
+          <mat-label>Job card number</mat-label>
+          <mat-select
+            [(ngModel)]="selectedComplaint.jobCardNumber"
+            name="jobCardNumber"
+            required
+          >
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <ag-grid-angular
+    style="width: 60%; height: 100%"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData$ | async"
+    [rowSelection]="'multiple'"
+    [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+    (cellClicked)="onCellClicked($event)"
+  ></ag-grid-angular>
+</div>

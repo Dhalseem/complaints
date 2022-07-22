@@ -1,0 +1,11 @@
+.nav-items {
+    margin: auto;
+}
+.toolbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px #0000004d;
+}

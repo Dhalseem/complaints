@@ -1,0 +1,178 @@
+<h2>Submit a new complaint</h2>
+<hr />
+<form (ngSubmit)="submitForm()">
+  <mat-label>Your details</mat-label> <br /><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Complainee name"
+      type="text"
+      [(ngModel)]="selectedComplaint.complaineeName"
+      name="name"
+      required
+    /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>E-mail</mat-label>
+    <input
+      matInput
+      placeholder="Email address"
+      type="email"
+      [(ngModel)]="selectedComplaint.email"
+      name="email"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Contact number</mat-label>
+    <input
+      matInput
+      placeholder="Contact number"
+      type="text"
+      [(ngModel)]="selectedComplaint.contactNumber"
+      name="contactNumber"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <hr />
+  <mat-label>Occupation details</mat-label> <br />
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>You are from:</mat-label>
+    <mat-select
+      [(ngModel)]="selectedComplaint.fromSail"
+      name="fromSail"
+      required
+    >
+      <mat-option value="SAIL">SAIL</mat-option>
+      <mat-option value="CISF">CISF</mat-option>
+      <mat-option value="KVS">KVS</mat-option>
+      <mat-option value="Post / Bank / BSNL">Post / Bank / BSNL</mat-option>
+      <mat-option value="Other...">Other...</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Department</mat-label>
+    <input
+      matInput
+      placeholder="Department"
+      type="text"
+      [(ngModel)]="selectedComplaint.department"
+      name="department"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Staff number</mat-label>
+    <input
+      matInput
+      placeholder="Staff number"
+      type="text"
+      [(ngModel)]="selectedComplaint.staffNumber"
+      name="staffNumber"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <hr />
+  <mat-label>Quarter details</mat-label> <br />
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Quarter type</mat-label>
+    <mat-select
+      [(ngModel)]="selectedComplaint.quarterType"
+      name="quarterType"
+      required
+    >
+      <mat-option value="A">A</mat-option>
+      <mat-option value="B">B</mat-option>
+      <mat-option value="C">C</mat-option>
+      <mat-option value="D">D</mat-option>
+      <mat-option value="GH 2">GH 2</mat-option>
+      <mat-option value="Other...">Other...</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Quarter number</mat-label>
+    <input
+      matInput
+      placeholder="Quarter number"
+      type="text"
+      [(ngModel)]="selectedComplaint.quarterNumber"
+      name="quarterNumber"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Block number</mat-label>
+    <input
+      matInput
+      placeholder="Block number"
+      type="text"
+      [(ngModel)]="selectedComplaint.blockNumber"
+      name="blockNumber"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Unit number</mat-label>
+    <input
+      matInput
+      placeholder="Unit number"
+      type="text"
+      [(ngModel)]="selectedComplaint.unitNumber"
+      name="unitNumber"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <hr />
+  <mat-label>Work details</mat-label> <br />
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>Is this a new allotment?</mat-label>
+    <mat-select
+      [(ngModel)]="selectedComplaint.newAllotment"
+      name="newAllotment"
+      required
+    >
+      <mat-option value="Yes">Yes</mat-option>
+      <mat-option value="No">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Nature of work</mat-label>
+    <mat-select
+      [(ngModel)]="selectedComplaint.workNature"
+      name="workNature"
+      required
+    >
+      <mat-option value="Cement">Cement</mat-option>
+      <mat-option value="Wood">Wood</mat-option>
+      <mat-option value="Painting">Painting</mat-option>
+      <mat-option value="Roof">Roof</mat-option>
+      <mat-option value="Water supply">Water supply</mat-option>
+      <mat-option value="Sanitary">Sanitary</mat-option>
+      <mat-option value="Sewerage line Repair only"
+        >Sewerage line Repair only</mat-option
+      >
+      <mat-option value="Miscellaneous">Miscellaneous</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline" style="width: 400px">
+    <mat-label>Complaint details</mat-label>
+    <textarea
+      matInput
+      placeholder="Complaint details"
+      type="text"
+      [(ngModel)]="selectedComplaint.complaintDetails"
+      name="complaintDetails"
+      required
+    ></textarea>
+  </mat-form-field>
+  <br />
+  <button mat-raised-button>Submit</button>
+</form>
