@@ -4,12 +4,17 @@ import { ComplaintDashboardComponent } from './complaint-dashboard/complaint-das
 import { ComplaintFormComponent } from './complaint-form/complaint-form.component';
 import { ComplaintsComponent } from './complaints/complaints.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'complaints', component: ComplaintDashboardComponent },
-  { path: 'complaints/complaints', component: ComplaintsComponent },
+  {
+    path: 'complaints/manage',
+    component: ComplaintsComponent,
+    canActivate: [AuthGuardService],
+  },
   {
     path: 'complaints/new',
     component: ComplaintFormComponent,

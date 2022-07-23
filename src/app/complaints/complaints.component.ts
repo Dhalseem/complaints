@@ -5,6 +5,8 @@ import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { map, Observable } from 'rxjs';
 import { settings } from '../../settings/settings.local';
 import * as moment from 'moment';
+import { ComplaintsService } from '../services/complaints.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-complaints',
@@ -12,7 +14,12 @@ import * as moment from 'moment';
   styleUrls: ['./complaints.component.css'],
 })
 export class ComplaintsComponent implements OnInit {
-  ngOnInit(): void {}
+  constructor(
+    private complaintsService: ComplaintsService,
+    private authService: AuthService
+  ) {}
+
+  async ngOnInit(): Promise<void> {}
 
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
@@ -83,20 +90,8 @@ export class ComplaintsComponent implements OnInit {
   // For accessing the Grid's API
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
-  constructor(private http: HttpClient) {}
-
   // Example load data from sever
-  onGridReady(params: GridReadyEvent) {
-    this.rowData$ = this.http.get<Complaint[]>(settings.api).pipe(
-      map((complaints) => {
-        complaints.forEach(
-          (c) =>
-            (c.timestamp = moment(c.timestamp, 'DD/MM/YYYY hh:mm:ss').toDate())
-        );
-        return complaints;
-      })
-    );
-  }
+  onGridReady(params: GridReadyEvent) {}
 
   // Example of consuming Grid Event
   onCellClicked(e: CellClickedEvent): void {
