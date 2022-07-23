@@ -23,7 +23,6 @@ export class AuthGuardService implements CanActivate {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     console.log('Running guard');
-    return true;
     if (this.authService.isAuthenticated) {
       return true;
     } else {
