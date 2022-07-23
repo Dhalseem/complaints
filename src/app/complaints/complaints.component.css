@@ -1,7 +1,6 @@
 .complaints{
     display: flex;
     flex-direction: row;
-    height: 100%;
 }
 .complaint-details{
     width: 40%;

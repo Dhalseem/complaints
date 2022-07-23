@@ -2,7 +2,9 @@
 <!-- <button (click)="clearSelection()">Clear Selection</button> -->
 <!-- AG Grid Angular Component -->
 
-<h3>Select a complaint in the table to manage complaint</h3>
+<h3 style="font-weight: 300">
+  Select a complaint in the table to manage complaint
+</h3>
 
 <div class="complaints">
   <div class="complaint-details">
@@ -128,7 +130,7 @@
   </div>
 
   <ag-grid-angular
-    style="width: 60%; height: 100%"
+    style="width: 60%"
     class="ag-theme-alpine"
     [columnDefs]="columnDefs"
     [defaultColDef]="defaultColDef"

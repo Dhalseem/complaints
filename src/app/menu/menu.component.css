@@ -1,5 +1,10 @@
 .nav-items {
-    margin: auto;
+    margin: 0 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+.nav-items a {
+    font-weight: 300;
 }
 .toolbar {
     position: fixed;
@@ -8,4 +13,10 @@
     left: 0;
     z-index: 10;
     box-shadow: 0 2px 5px #0000004d;
+    height: 48px;
+}
+.navbar {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
 }
