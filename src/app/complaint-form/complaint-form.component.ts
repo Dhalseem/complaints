@@ -30,7 +30,6 @@ export class ComplaintFormComponent implements OnInit {
     attendPeriodFrom: '',
     attendPeriodTo: '',
     remarks: '',
-    complaintId: '',
   };
   ngOnInit(): void {}
   public complaintForm: any;

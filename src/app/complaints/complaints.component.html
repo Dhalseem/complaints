@@ -6,7 +6,7 @@
 
 <div class="complaints">
   <div class="complaint-details">
-    <h2>Complaint {{ selectedComplaint.complaintId }}</h2>
+    <h2>Complaint</h2>
     <mat-accordion multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -132,7 +132,7 @@
     class="ag-theme-alpine"
     [columnDefs]="columnDefs"
     [defaultColDef]="defaultColDef"
-    [rowData]="rowData$ | async"
+    [rowData]="rowData$"
     [rowSelection]="'multiple'"
     [animateRows]="true"
     (gridReady)="onGridReady($event)"

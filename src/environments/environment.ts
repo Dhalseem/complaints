@@ -10,6 +10,7 @@ export const environment = {
   discoveryDoc: 'https://sheets.googleapis.com/$discovery/rest?version=v4',
   gapiScopes: 'https://www.googleapis.com/auth/spreadsheets.readonly',
   spreadSheetId: '1QKWnUq_fZpdRZAYBNjkNDzyuUCtQqR0s7eDIF7LJ1GA',
+  complaintsSchema: 'Complaints',
 };
 
 /*

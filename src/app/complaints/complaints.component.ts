@@ -59,39 +59,18 @@ export class ComplaintsComponent implements OnInit {
   };
 
   // Data that gets displayed in the grid
-  public rowData$!: Observable<Complaint[]>;
+  public rowData$!: Complaint[];
 
-  public selectedComplaint: Complaint = {
-    timestamp: new Date(),
-    email: '',
-    fromSail: '',
-    staffNumber: '',
-    complaineeName: '',
-    department: '',
-    contactNumber: '',
-    quarterType: '',
-    blockNumber: '',
-    unitNumber: '',
-    newAllotment: '',
-    quarterNumber: '',
-    workNature: '',
-    complaintDetails: '',
-    status: '',
-    pendingDays: '',
-    attendingWorkId: '',
-    contract: '',
-    jobCardNumber: '',
-    attendPeriodFrom: '',
-    attendPeriodTo: '',
-    remarks: '',
-    complaintId: '',
-  };
+  public selectedComplaint: Complaint = {} as Complaint;
 
   // For accessing the Grid's API
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
   // Example load data from sever
-  onGridReady(params: GridReadyEvent) {}
+  async onGridReady(params: GridReadyEvent) {
+    this.rowData$ = await this.complaintsService.getComplaints();
+    console.log(this.rowData$);
+  }
 
   // Example of consuming Grid Event
   onCellClicked(e: CellClickedEvent): void {
