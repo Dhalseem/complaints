@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 import { ComplaintsService } from '../services/complaints.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ComplaintsService } from '../services/complaints.service';
 export class ComplaintFormComponent implements OnInit {
   constructor(private complaintsService: ComplaintsService) {}
   public selectedComplaint: Complaint = {
-    timestamp: new Date(),
+    timestamp: '',
     email: '',
     fromSail: '',
     staffNumber: '',
@@ -36,10 +37,12 @@ export class ComplaintFormComponent implements OnInit {
   ngOnInit(): void {}
   public complaintForm: any;
   submitForm() {
+    this.selectedComplaint.timestamp = moment().format('DD/MM/YYYY HH:mm:ss');
     this.selectedComplaint.quarterNumber = `${this.selectedComplaint.quarterType}-${this.selectedComplaint.blockNumber}/${this.selectedComplaint.unitNumber}`;
     this.complaintsService.createComplaint(this.selectedComplaint).subscribe(
       () => {
         console.log('Form submitted successfully');
+        alert('Form sumitted successfully!');
       },
       (err) => console.log(err)
     );

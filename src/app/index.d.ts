@@ -1,5 +1,5 @@
 interface Complaint {
-  timestamp: Date;
+  timestamp: string;
   email: string;
   fromSail: string;
   staffNumber: string;

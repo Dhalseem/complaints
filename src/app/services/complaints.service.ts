@@ -22,7 +22,7 @@ export class ComplaintsService {
       response.result.values?.forEach((elem, index) => {
         if (index != 0) {
           const complaint: Complaint = {
-            timestamp: new Date(),
+            timestamp: '',
             email: '',
             fromSail: '',
             staffNumber: '',

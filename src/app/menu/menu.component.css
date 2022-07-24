@@ -4,7 +4,8 @@
     align-items: center;
 }
 .nav-items a {
-    font-weight: 300;
+    font-weight: 500;
+    color: white;
 }
 .toolbar {
     position: fixed;
@@ -14,9 +15,11 @@
     z-index: 10;
     box-shadow: 0 2px 5px #0000004d;
     height: 48px;
+    background-color: #279aff;
 }
 .navbar {
     display: flex;
     margin: 0 auto;
     width: 80%;
+
 }
