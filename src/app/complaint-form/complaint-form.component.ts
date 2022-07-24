@@ -37,7 +37,7 @@ export class ComplaintFormComponent implements OnInit {
   ngOnInit(): void {}
   public complaintForm: any;
   submitForm() {
-    this.selectedComplaint.timestamp = moment().format('DD/MM/YYYY HH:mm:ss');
+    this.selectedComplaint.timestamp = moment().format('MM/DD/YYYY HH:mm:ss');
     this.selectedComplaint.quarterNumber = `${this.selectedComplaint.quarterType}-${this.selectedComplaint.blockNumber}/${this.selectedComplaint.unitNumber}`;
     this.complaintsService.createComplaint(this.selectedComplaint).subscribe(
       () => {
