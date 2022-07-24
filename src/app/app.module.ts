@@ -48,6 +48,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSidenavModule,
     MatTabsModule,
     MatExpansionModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

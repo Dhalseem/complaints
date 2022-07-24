@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -5,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ComplaintsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   private complaints!: Complaint[];
 
@@ -56,5 +57,9 @@ export class ComplaintsService {
       console.log('Error: ', err);
       return err;
     }
+  }
+
+  public createComplaint(complaint: Complaint) {
+    return this.http.post(`${environment.apiUrl}/complaints`, complaint);
   }
 }

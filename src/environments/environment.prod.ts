@@ -7,4 +7,5 @@ export const environment = {
   gapiScopes: 'https://www.googleapis.com/auth/spreadsheets.readonly',
   spreadSheetId: '1QKWnUq_fZpdRZAYBNjkNDzyuUCtQqR0s7eDIF7LJ1GA',
   complaintsSchema: 'Complaints',
+  apiUrl: 'https://sail-grievances-api.netlify.app/.netlify/functions',
 };

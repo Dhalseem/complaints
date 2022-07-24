@@ -11,6 +11,7 @@
       [(ngModel)]="selectedComplaint.complaineeName"
       name="name"
       required
+      #name="ngModel"
     /> </mat-form-field
   ><br />
   <mat-form-field appearance="outline" style="width: 300px">
@@ -28,10 +29,11 @@
     <input
       matInput
       placeholder="Contact number"
-      type="text"
+      type="number"
       [(ngModel)]="selectedComplaint.contactNumber"
       name="contactNumber"
       required
+      #cont="ngModel"
     />
   </mat-form-field>
   <br />
@@ -44,6 +46,7 @@
       [(ngModel)]="selectedComplaint.fromSail"
       name="fromSail"
       required
+      #ocFrom="ngModel"
     >
       <mat-option value="SAIL">SAIL</mat-option>
       <mat-option value="CISF">CISF</mat-option>
@@ -62,6 +65,7 @@
       [(ngModel)]="selectedComplaint.department"
       name="department"
       required
+      #ocDpt="ngModel"
     />
   </mat-form-field>
   <mat-form-field appearance="outline">
@@ -73,6 +77,7 @@
       [(ngModel)]="selectedComplaint.staffNumber"
       name="staffNumber"
       required
+      #ocStf="ngModel"
     />
   </mat-form-field>
   <br />
@@ -85,6 +90,7 @@
       [(ngModel)]="selectedComplaint.quarterType"
       name="quarterType"
       required
+      #qtrType="ngModel"
     >
       <mat-option value="A">A</mat-option>
       <mat-option value="B">B</mat-option>
@@ -95,25 +101,15 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="outline">
-    <mat-label>Quarter number</mat-label>
-    <input
-      matInput
-      placeholder="Quarter number"
-      type="text"
-      [(ngModel)]="selectedComplaint.quarterNumber"
-      name="quarterNumber"
-      required
-    />
-  </mat-form-field>
-  <mat-form-field appearance="outline">
     <mat-label>Block number</mat-label>
     <input
       matInput
       placeholder="Block number"
-      type="text"
+      type="number"
       [(ngModel)]="selectedComplaint.blockNumber"
       name="blockNumber"
       required
+      #qtrBlock="ngModel"
     />
   </mat-form-field>
   <mat-form-field appearance="outline">
@@ -121,10 +117,11 @@
     <input
       matInput
       placeholder="Unit number"
-      type="text"
+      type="number"
       [(ngModel)]="selectedComplaint.unitNumber"
       name="unitNumber"
       required
+      #qtrUnit="ngModel"
     />
   </mat-form-field>
   <br />
@@ -137,6 +134,7 @@
       [(ngModel)]="selectedComplaint.newAllotment"
       name="newAllotment"
       required
+      #newAlot="ngModel"
     >
       <mat-option value="Yes">Yes</mat-option>
       <mat-option value="No">No</mat-option>
@@ -144,11 +142,7 @@
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Nature of work</mat-label>
-    <mat-select
-      [(ngModel)]="selectedComplaint.workNature"
-      name="workNature"
-      required
-    >
+    <mat-select [(ngModel)]="selectedComplaint.workNature" name="workNature">
       <mat-option value="Cement">Cement</mat-option>
       <mat-option value="Wood">Wood</mat-option>
       <mat-option value="Painting">Painting</mat-option>
@@ -171,8 +165,25 @@
       [(ngModel)]="selectedComplaint.complaintDetails"
       name="complaintDetails"
       required
+      #details="ngModel"
     ></textarea>
   </mat-form-field>
   <br />
-  <button mat-raised-button>Submit</button>
+  <button
+    mat-raised-button
+    [disabled]="
+      name.invalid ||
+      cont.invalid ||
+      ocFrom.invalid ||
+      ocDpt.invalid ||
+      ocStf.invalid ||
+      qtrType.invalid ||
+      qtrBlock.invalid ||
+      qtrUnit.invalid ||
+      newAlot.invalid ||
+      details.invalid
+    "
+  >
+    Submit
+  </button>
 </form>
