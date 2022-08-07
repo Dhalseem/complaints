@@ -11,7 +11,7 @@ export const environment = {
   gapiScopes: 'https://www.googleapis.com/auth/spreadsheets.readonly',
   spreadSheetId: '1QKWnUq_fZpdRZAYBNjkNDzyuUCtQqR0s7eDIF7LJ1GA',
   complaintsSchema: 'Complaints',
-  apiUrl: 'http://localhost:9000/.netlify/functions',
+  apiUrl: 'http://localhost:8888/.netlify/functions',
 };
 
 /*

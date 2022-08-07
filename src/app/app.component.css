@@ -1,7 +1,6 @@
-.app-wrapper{
-}
+.app-wrapper {}
 
-.app-content{
+.app-content {
     width: 80%;
     margin: 60px auto;
 }
@@ -15,8 +14,34 @@ footer {
     box-shadow: 0 2px 5px #0000004d;
 }
 
-.footer-items{
+.footer-items {
     width: 80%;
     display: flex;
     margin: 0 auto;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-items a {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.toolbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px #0000004d;
+    height: 48px;
+    background-color: #279aff;
+}
+
+.example-container {
+    margin-top: 48px;
 }

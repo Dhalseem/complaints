@@ -1,0 +1,98 @@
+<form (ngSubmit)="submitForm()">
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Username</mat-label>
+    <input
+      matInput
+      placeholder="username"
+      type="text"
+      [(ngModel)]="user"
+      required
+      name="user"
+      #username="ngModel"
+    /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      placeholder="Password"
+      type="password"
+      [(ngModel)]="pass"
+      required
+      name="pass"
+      #password="ngModel"
+    /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="Email"
+      type="email"
+      [(ngModel)]="email"
+      required
+      name="email"
+      #username="ngModel"
+    /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Full name</mat-label>
+    <input
+      matInput
+      placeholder="Full name"
+      type="text"
+      [(ngModel)]="fullName"
+      required
+      name="fullName"
+      #username="ngModel"
+    /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Contact number</mat-label>
+    <input
+      matInput
+      placeholder="Contact number"
+      type="number"
+      [(ngModel)]="contactNumber"
+      required
+      name="contactNumber"
+      #username="ngModel"
+    /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Organization</mat-label>
+    <input
+      matInput
+      placeholder="organization"
+      type="text"
+      [(ngModel)]="organization"
+      required
+      name="organization"
+      #username="ngModel"
+    /> </mat-form-field
+  ><br />
+  <mat-form-field appearance="outline" style="width: 300px">
+    <mat-label>Department</mat-label>
+    <input
+      matInput
+      placeholder="department"
+      type="text"
+      [(ngModel)]="department"
+      required
+      name="department"
+      #username="ngModel"
+    /> </mat-form-field
+  ><br />
+
+  <mat-form-field appearance="outline">
+    <mat-label>User role</mat-label>
+    <mat-select [(ngModel)]="grant" name="grant" required #ocFrom="ngModel">
+      <mat-option value="Admin">Admin</mat-option>
+      <mat-option value="Executive">Executive</mat-option>
+      <mat-option value="Supervisor">Supervisor</mat-option>
+      <mat-option value="Occupant">Occupant</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <button mat-raised-button>Submit</button>
+</form>

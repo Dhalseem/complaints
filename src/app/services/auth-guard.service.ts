@@ -8,12 +8,13 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { CustomAuthService } from './custom-auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: CustomAuthService, private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -23,11 +24,10 @@ export class AuthGuardService implements CanActivate {
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     console.log('Running guard');
-    if (this.authService.isAuthenticated) {
+    if (this.authService.isAuthenticated()) {
       return true;
     } else {
-      alert('Permission denied, taking you back to login page.');
-      this.router.navigate(['complaints']);
+      this.router.navigate(['login']);
       return false;
     }
   }

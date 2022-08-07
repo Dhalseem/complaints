@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComplaintsComponent } from './complaints/complaints.component';
-import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -21,15 +20,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { ComplaintFormComponent } from './complaint-form/complaint-form.component';
 import { ComplaintDashboardComponent } from './complaint-dashboard/complaint-dashboard.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     ComplaintsComponent,
-    MenuComponent,
     HomeComponent,
     ComplaintFormComponent,
     ComplaintDashboardComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSidenavModule,
     MatTabsModule,
     MatExpansionModule,
+    MatSnackBarModule,
     HttpClientModule,
   ],
   providers: [],

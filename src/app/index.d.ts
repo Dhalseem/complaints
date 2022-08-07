@@ -22,3 +22,20 @@ interface Complaint {
   attendPeriodTo: string;
   remarks: string;
 }
+
+interface userToken {
+  username: string;
+  email: string;
+  fullName: string;
+  contactNumber: string;
+  organization: string;
+  department: string;
+  grant: string;
+  iat: number;
+  exp: number;
+}
+
+interface loginResponse {
+  message: string;
+  token: string;
+}

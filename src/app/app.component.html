@@ -1,36 +1,71 @@
-<app-menu></app-menu>
-
-<div class="app-content">
-  <router-outlet></router-outlet>
-</div>
-<footer>
-  <div class="footer-items">
-    <a
-      mat-button
-      color="primary"
-      target="_blank"
-      href="https://www.sail.co.in/en/home"
-      >SAIL official site
-      <mat-icon
-        aria-hidden="false"
-        aria-label="visit sail official site"
-        style="font-size: 100%"
-        >open_in_new</mat-icon
+<mat-toolbar class="toolbar">
+  <button mat-button (click)="drawer.toggle()" *ngIf="isLoggedIn">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img
+    style="padding-left: 12px"
+    src="../../assets/sail-logo.png"
+    alt="sail logo"
+    srcset=""
+    width="40px"
+  />
+  <span *ngIf="isLoggedIn" style="margin: 0 20px 0 auto; font-size: 18px">
+    Logged in as <em> {{ username }}</em></span
+  >
+</mat-toolbar>
+<mat-drawer-container class="example-container" hasBackdrop="false">
+  <mat-drawer #drawer mode="side">
+    <div class="nav-items">
+      <a mat-button routerLink="home">Home</a>
+      <a mat-button routerLink="complaints/new">Lodge complaint</a>
+      <a mat-button routerLink="complaints/manage" *ngIf="boardPermission"
+        >Complaints board</a
       >
-    </a>
-    <a
-      mat-button
-      color="primary"
-      mat-button
-      target="_blank"
-      href="https://sailcareers.com"
-      >SAIL careers
-      <mat-icon
-        aria-hidden="false"
-        aria-label="visit sail career site"
-        style="font-size: 100%"
-        >open_in_new</mat-icon
-      ></a
-    >
+      <a mat-button routerLink="complaints">Personal complaints</a>
+      <a mat-button routerLink="register" *ngIf="addUserPermission">Add user</a>
+      <button
+        mat-button
+        (click)="logout()"
+        *ngIf="isLoggedIn"
+        style="text-align: left"
+      >
+        Logout<mat-icon style="padding-left: 5px">logout</mat-icon>
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div class="app-content">
+    <router-outlet></router-outlet>
   </div>
-</footer>
+  <footer>
+    <div class="footer-items">
+      <a
+        mat-button
+        color="primary"
+        target="_blank"
+        href="https://www.sail.co.in/en/home"
+        >SAIL official site
+        <mat-icon
+          aria-hidden="false"
+          aria-label="visit sail official site"
+          style="font-size: 100%"
+          >open_in_new</mat-icon
+        >
+      </a>
+      <a
+        mat-button
+        color="primary"
+        mat-button
+        target="_blank"
+        href="https://sailcareers.com"
+        >SAIL careers
+        <mat-icon
+          aria-hidden="false"
+          aria-label="visit sail career site"
+          style="font-size: 100%"
+          >open_in_new</mat-icon
+        ></a
+      >
+    </div>
+  </footer>
+</mat-drawer-container>
