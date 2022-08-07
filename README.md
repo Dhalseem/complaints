@@ -1,6 +1,8 @@
 # Complaints tracker
 
 Front end repo for tracking complaints in sail.
+Application is live here: https://sail-grievances.netlify.app/login.
+Please contact repo admin for access to this application
 
 # Contributing to the code
 
