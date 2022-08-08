@@ -12,25 +12,25 @@ export class ComplaintFormComponent implements OnInit {
   public selectedComplaint: Complaint = {
     timestamp: '',
     email: '',
-    fromSail: '',
+    organization: '',
     staffNumber: '',
-    complaineeName: '',
+    name: '',
     department: '',
     contactNumber: '',
     quarterType: '',
     blockNumber: '',
     unitNumber: '',
-    newAllotment: '',
-    quarterNumber: '',
-    workNature: '',
+    isThisANewAllotment: '',
+    qrtrNo: '',
+    natureOfWork: '',
     complaintDetails: '',
     status: '',
     pendingDays: '',
     attendingWorkId: '',
     contract: '',
-    jobCardNumber: '',
-    attendPeriodFrom: '',
-    attendPeriodTo: '',
+    jobCardNo: '',
+    attPeriodFrom: '',
+    attPeriodTo: '',
     remarks: '',
   };
   public name: any;
@@ -38,7 +38,7 @@ export class ComplaintFormComponent implements OnInit {
   public complaintForm: any;
   submitForm() {
     this.selectedComplaint.timestamp = moment().format('MM/DD/YYYY HH:mm:ss');
-    this.selectedComplaint.quarterNumber = `${this.selectedComplaint.quarterType}-${this.selectedComplaint.blockNumber}/${this.selectedComplaint.unitNumber}`;
+    this.selectedComplaint.qrtrNo = `${this.selectedComplaint.quarterType}-${this.selectedComplaint.blockNumber}/${this.selectedComplaint.unitNumber}`;
     this.complaintsService.createComplaint(this.selectedComplaint).subscribe(
       () => {
         console.log('Form submitted successfully');
