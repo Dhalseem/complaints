@@ -30,6 +30,11 @@ export class CustomAuthService {
     return false;
   }
 
+  public getToken() {
+    const token = localStorage.getItem('session_token');
+    return token;
+  }
+
   public logout() {
     localStorage.clear();
     this.isAuthObservable.next(false);
@@ -52,12 +57,6 @@ export class CustomAuthService {
     return decToken.username;
   }
   public register(paylaod: any) {
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      `Bearer ${localStorage.getItem('session_token')}`
-    );
-    return this.http.post(`${environment.apiUrl}/register`, paylaod, {
-      headers: headers,
-    });
+    return this.http.post(`${environment.apiUrl}/register`, paylaod);
   }
 }

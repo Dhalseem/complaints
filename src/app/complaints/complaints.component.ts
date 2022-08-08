@@ -14,41 +14,19 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./complaints.component.css'],
 })
 export class ComplaintsComponent implements OnInit {
-  constructor(
-    private complaintsService: ComplaintsService,
-    private authService: AuthService
-  ) {}
+  constructor(private complaintsService: ComplaintsService) {}
 
   async ngOnInit(): Promise<void> {}
 
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
-    {
-      field: 'timestamp',
-      headerName: 'Created date',
-      valueFormatter: (params) => new Date(params.value).toLocaleString(),
-    },
-    { field: 'email' },
-    { field: 'fromSail' },
-    { field: 'staffNumber' },
-    { field: 'complaineeName' },
-    { field: 'department' },
-    { field: 'contactNumber' },
-    { field: 'quarterType' },
-    { field: 'blockNumber' },
-    { field: 'unitNumber' },
-    { field: 'newAllotment' },
-    { field: 'quarterNumber' },
-    { field: 'workNature' },
     { field: 'complaintDetails' },
     { field: 'status' },
+    { field: 'name' },
+    { field: 'staffNumber' },
+    { field: 'department' },
+    { field: 'quarterNumber' },
     { field: 'pendingDays' },
-    { field: 'attendingWorkId' },
-    { field: 'contract' },
-    { field: 'jobCardNumber' },
-    { field: 'attendPeriodFrom' },
-    { field: 'attendPeriodTo' },
-    { field: 'remarks' },
   ];
 
   // DefaultColDef sets props common to all Columns
@@ -67,8 +45,10 @@ export class ComplaintsComponent implements OnInit {
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
   // Example load data from sever
-  async onGridReady(params: GridReadyEvent) {
-    this.rowData$ = await this.complaintsService.getComplaints();
+  onGridReady(params: GridReadyEvent) {
+    this.complaintsService.getComplaints().subscribe((response) => {
+      this.rowData$ = response;
+    });
     console.log(this.rowData$);
   }
 
@@ -83,7 +63,13 @@ export class ComplaintsComponent implements OnInit {
     this.agGrid.api.deselectAll();
   }
   public complaintForm: any;
-  submitForm() {
-    console.log('Submitted form brio');
+  public updateComplaint() {
+    this.complaintsService
+      .updateComplaint(this.selectedComplaint)
+      .subscribe(() => {
+        this.complaintsService.getComplaints().subscribe((response) => {
+          this.rowData$ = response;
+        });
+      });
   }
 }

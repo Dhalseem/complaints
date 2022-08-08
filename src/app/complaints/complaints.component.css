@@ -1,8 +1,28 @@
-.complaints{
+.complaints {
     display: flex;
     flex-direction: row;
 }
-.complaint-details{
+
+.complaint-details {
     width: 40%;
     padding-right: 12px;
+}
+
+.ag-custom {
+    width: 60%
+}
+
+@media (max-width: 850px) {
+    .complaints {
+        flex-direction: column;
+    }
+
+    .ag-custom {
+        width: 100%;
+        height: 500px;
+    }
+
+    .complaint-details {
+        width: 100%;
+    }
 }

@@ -8,17 +8,17 @@
 
 <div class="complaints">
   <div class="complaint-details">
-    <h2>Complaint</h2>
+    <h2>Complaint {{ selectedComplaint.id }}</h2>
     <mat-accordion multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title> Complainee details </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-label
-          >Complainee: <b>{{ selectedComplaint.complaineeName }}</b></mat-label
+          >Complainee: <b>{{ selectedComplaint.name }}</b></mat-label
         ><br />
         <mat-label
-          >Organization: <b>{{ selectedComplaint.fromSail }}</b></mat-label
+          >Organization: <b>{{ selectedComplaint.organization }}</b></mat-label
         ><br />
         <mat-label
           >Staff Id: <b>{{ selectedComplaint.staffNumber }}</b></mat-label
@@ -27,7 +27,7 @@
           >Department: <b>{{ selectedComplaint.department }}</b></mat-label
         ><br />
         <mat-label
-          >Quarter: <b>{{ selectedComplaint.quarterNumber }}</b></mat-label
+          >Quarter: <b>{{ selectedComplaint.qrtrNo }}</b></mat-label
         ><br />
         <mat-label
           >Contact: <b>{{ selectedComplaint.contactNumber }}</b></mat-label
@@ -48,16 +48,14 @@
             type="text"
             [(ngModel)]="selectedComplaint.complaintDetails"
             name="complaintDetails"
-            required
           ></textarea>
         </mat-form-field>
         <br />
         <mat-form-field appearance="outline">
           <mat-label>Nature of work</mat-label>
           <mat-select
-            [(ngModel)]="selectedComplaint.workNature"
+            [(ngModel)]="selectedComplaint.natureOfWork"
             name="workNature"
-            required
           >
             <mat-option value="Cement">Cement</mat-option>
             <mat-option value="Wood">Wood</mat-option>
@@ -73,11 +71,7 @@
         ><br />
         <mat-form-field appearance="outline">
           <mat-label>Status</mat-label>
-          <mat-select
-            [(ngModel)]="selectedComplaint.status"
-            name="status"
-            required
-          >
+          <mat-select [(ngModel)]="selectedComplaint.status" name="status">
             <mat-option value="New">New</mat-option>
             <mat-option value="Pending">Pending</mat-option>
             <mat-option value="Attended">Attended</mat-option>
@@ -91,7 +85,6 @@
             type="number"
             [(ngModel)]="selectedComplaint.pendingDays"
             name="pendingDays"
-            required
           />
         </mat-form-field>
         <br />
@@ -105,7 +98,6 @@
           <mat-select
             [(ngModel)]="selectedComplaint.attendingWorkId"
             name="workNature"
-            required
           >
             <mat-option value="CC4625">CC4625</mat-option>
           </mat-select>
@@ -117,9 +109,8 @@
         <mat-form-field appearance="outline">
           <mat-label>Job card number</mat-label>
           <mat-select
-            [(ngModel)]="selectedComplaint.jobCardNumber"
+            [(ngModel)]="selectedComplaint.jobCardNo"
             name="jobCardNumber"
-            required
           >
             <mat-option value="1">1</mat-option>
             <mat-option value="2">2</mat-option>
@@ -127,11 +118,17 @@
         </mat-form-field>
       </mat-expansion-panel>
     </mat-accordion>
+    <button
+      mat-raised-button
+      style="margin: 12px 0"
+      (click)="updateComplaint()"
+    >
+      Update
+    </button>
   </div>
 
   <ag-grid-angular
-    style="width: 60%"
-    class="ag-theme-alpine"
+    class="ag-theme-alpine ag-custom"
     [columnDefs]="columnDefs"
     [defaultColDef]="defaultColDef"
     [rowData]="rowData$"

@@ -1,28 +1,28 @@
 interface Complaint {
+  id?: string;
   timestamp: string;
   email: string;
-  fromSail: string;
+  organization: string;
   staffNumber: string;
-  complaineeName: string;
+  name: string;
   department: string;
   contactNumber: string;
   quarterType: string;
   blockNumber: string;
   unitNumber: string;
-  newAllotment: string;
-  quarterNumber: string;
-  workNature: string;
+  isThisANewAllotment: string;
+  qrtrNo: string;
+  natureOfWork: string;
   complaintDetails: string;
   status: string;
   pendingDays: string;
   attendingWorkId: string;
   contract: string;
-  jobCardNumber: string;
-  attendPeriodFrom: string;
-  attendPeriodTo: string;
+  jobCardNo: string;
+  attPeriodFrom: string;
+  attPeriodTo: string;
   remarks: string;
 }
-
 interface userToken {
   username: string;
   email: string;
